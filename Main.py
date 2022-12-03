@@ -22,28 +22,10 @@ import texas
 import cornell
 import washington
 import wisconsin
-# import Smith
-# import cora
-# import KKI
 import gene
 import reality
-# import OHSU
 import citeseer
-# import AIDS
-# import PTC_MM
-# import MSRC
 import BZR
-# import SW_10000
-# import CL
-# import soc
-# import Fingerprint
-# import letter
-# import DD
-# import DD242
-# import DD6
-# import Email
-# import terroristrel
-# import COX
 
 # import bio_yeast
 
@@ -58,28 +40,11 @@ if __name__ == "__main__":
     # A,ground_community_labels = cornell.get_A()
     # A,ground_community_labels = washington.get_A()
     # A,ground_community_labels = wisconsin.get_A()
-    # A,ground_community_labels = cora.get_A()
-    # A,ground_community_labels = KKI.get_A()
     # A,ground_community_labels = gene.get_A()
     # A,ground_community_labels = reality.get_A()
-    # A,ground_community_labels = OHSU.get_A()
-    # A = Smith.get_A()
     # A,ground_community_labels = citeseer.get_A()
-    # A,ground_community_labels = AIDS.get_A()
-    # A,ground_community_labels = PTC_MM.get_A()
-    # A,ground_community_labels = MSRC.get_A()
     A,ground_community_labels = BZR.get_A()
-    # A,ground_community_labels = SW_10000.get_A()
-    # A,ground_community_labels = CL.get_A()
-    # A,ground_community_labels = soc.get_A()
-    # A,ground_community_labels = Fingerprint.get_A()
-    # A,ground_community_labels = letter.get_A()
-    # A,ground_community_labels = DD.get_A()
-    # A,ground_community_labels = DD242.get_A()
-    # A,ground_community_labels = DD6.get_A()
-    # A,ground_community_labels = Email.get_A()
-    # A,ground_community_labels = terroristrel.get_A()
-    # A,ground_community_labels = COX.get_A()
+
 
     # A = bio_yeast.get_A()
     G = nx.Graph(A)
@@ -107,22 +72,12 @@ if __name__ == "__main__":
         G.remove_node(delete_component[i])
         ground_community_labels.pop(delete_component[i])
     
-    # print(delete_component)
 
     
     A = np.array(nx.adjacency_matrix(G).todense())
     G = nx.Graph(A)
         
     
-    # A = np.array(nx.adjacency_matrix(G).todense())
-    # G = nx.Graph(A)
-
-
-
-
-    # Jaccard = Jaccard.get_Jaccard(A)
-    # S_1 = NewJaccard.getSimilarity_1_order(G)
-    # S_2 = NewJaccard.getSimilarity(G)
     S_3 = NewJaccard_3.get_3_order_similarity(A)
 
     n = len(G.nodes())
@@ -134,8 +89,6 @@ if __name__ == "__main__":
         S_la[i][i] = temp
 
     
-    # lam = [10**-3, 10**-2, 10**-1, 10**0, 10**1, 10**2, 10**3]
-    # alpha = [10**-3, 10**-2, 10**-1, 10**0, 10**1, 10**2, 10**3]
     Max_M = 0
     Max_N = 0
     Max_F = 0
@@ -169,10 +122,6 @@ if __name__ == "__main__":
         temp_ACC = 0
         for lam in parameter:
             for al in parameter:
-                # Max_M = 0
-                # Max_A = 0
-                # Max_N = 0
-                # Max_F = 0
 
                 H = CCNMF.CCNMF(A,S_la,S_3,max_iter=500,k=number,l=lam,alpha=al,cita=1000,beta=0.5)
                 clusters = {}
@@ -198,7 +147,7 @@ if __name__ == "__main__":
                 
 
                 matrix = metrics.cluster.pair_confusion_matrix(ground_community_labels,detected_community_labels)
-                F_score = (2*matrix[1][1]) / (2*matrix[1][1] + matrix[0][1] + matrix[1][0])
+                F_score = (2*matrix[0][0]) / (2*matrix[0][0] + matrix[0][1] + matrix[1][0])
                 if (temp_F < F_score):
                     temp_F = F_score
                 

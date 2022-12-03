@@ -129,25 +129,3 @@ def get_1_neighbor(A,v):
     return neighbor
 
 
-# # G = nx.karate_club_graph()
-G = nx.Graph()
-for i in range(0,9):
-    G.add_node(i)
-G.add_edge(0,2)
-G.add_edge(0,3)
-G.add_edge(0,6)
-G.add_edge(1,4)
-G.add_edge(1,5)
-G.add_edge(1,9)
-G.add_edge(2,4)
-G.add_edge(3,5)
-G.add_edge(6,7)
-G.add_edge(7,8)
-G.add_edge(8,9)
-A = np.array(nx.adjacency_matrix(G).todense())
-get_3_order_similarity(A)
-# S1 = get_Jaccard(A)
-# S_2 = NewJaccard.getSimilarity(G)
-# print(S1)
-# print(S_2)
-
