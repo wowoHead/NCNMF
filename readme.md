@@ -11,5 +11,9 @@ Ubuntu server with 3.70-GHz i9-10900K CPU and 128-GB main memory
 ```
 
 ## 3.Data
-![](https://github.com/wowoHead/NCNMF/tree/master/DATASET/Data.png)
-
+## 3.Data
+|Statistic|Texas|Cornell|Washington|Wisconsin|Gene|Citeseer|Reality-call|BZR|
+|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+|#Nodes|185|195|217|262|1,103|3,264|6,809|14,479|
+|#Edges|296|286|404|476|1,672|4,612|7,697|15,535|
+|#Communities|5|5|5|5|5|2|6|2|10|
