@@ -11,7 +11,6 @@ Ubuntu server with 3.70-GHz i9-10900K CPU and 128-GB main memory
 ```
 
 ## 3.Data
-## 3.Data
 |Statistic|Texas|Cornell|Washington|Wisconsin|Gene|Citeseer|Reality-call|BZR|
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|
 |#Nodes|185|195|217|262|1,103|3,264|6,809|14,479|
